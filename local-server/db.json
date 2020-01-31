@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "email": "vmurali100@gmail.com",
+      "password": "123`11",
+      "city": "Chennai",
+      "id": 1
+    },
+    {
+      "email": "kamlesh23@gmail.comm",
+      "password": "11122",
+      "city": "Hyderabad",
+      "id": 3
+    },
+    {
+      "email": "vmurali1001@gmail.com",
+      "password": "1111",
+      "city": "Bangalore",
+      "id": 4
+    },
+    {
+      "email": "somesh6123@gmail.com",
+      "password": "nanan",
+      "city": "Amaravathi",
+      "id": 5
+    },
+    {
+      "email": "vmurali11@gmail.com",
+      "password": "1234",
+      "city": "Chennai",
+      "id": 6
+    }
+  ]
+}

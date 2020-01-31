@@ -1,0 +1,16 @@
+<p>parent works!</p>
+
+<p>Message From Child : {{ messageFromChild }}</p>
+
+<p>
+  Object From Child :
+  <span *ngIf="objFromChild"
+    >{{ objFromChild.fname }}-{{ objFromChild.lname }}</span
+  >
+</p>
+<hr />
+
+<app-child
+  (sendInfo)="receieveMessageFromChild($event)"
+  (sendObj)="receiveObj($event)"
+></app-child>

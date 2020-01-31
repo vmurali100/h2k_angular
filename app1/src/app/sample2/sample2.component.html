@@ -1,0 +1,14 @@
+<p>sample2 works!</p>
+
+<h2>Message Received From Parent is : {{ messageFromParent }}</h2>
+
+<h2>Object Received From Parent</h2>
+
+<p>First Name : {{ objFromParent.fname }}</p>
+<p>Last Name : {{ objFromParent.lname }}</p>
+
+<h2>Array Received from Parent ---</h2>
+
+<ul>
+  <li *ngFor="let user of arrayFromParent">{{ user }}</li>
+</ul>
