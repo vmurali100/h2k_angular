@@ -2,7 +2,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
 import { AppRoutingModule } from "./app-routing.module";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from "./app.component";
 import { Sample1Component } from "./sample1/sample1.component";
@@ -12,6 +12,8 @@ import { ChildComponent } from "./childToParent/child/child.component";
 import { Sib1Component } from "./Siblings/sib1/sib1.component";
 import { Sib2Component } from "./Siblings/sib2/sib2.component";
 import { UserComponent } from "./user/user.component";
+import { NewUserComponent } from "./new-user/new-user.component";
+import { UserFormComponent } from "./user-form/user-form.component";
 
 @NgModule({
   declarations: [
@@ -22,9 +24,17 @@ import { UserComponent } from "./user/user.component";
     ChildComponent,
     Sib1Component,
     Sib2Component,
-    UserComponent
+    UserComponent,
+    NewUserComponent,
+    UserFormComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

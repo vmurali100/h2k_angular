@@ -1,0 +1,26 @@
+<p>new-user works!</p>
+
+<form #newUser="ngForm">
+  <!-- <input type="text" ngModel name="fname" /> -->
+  <input
+    type="checkbox"
+    [(ngModel)]="fname"
+    name="fname"
+    (change)="getSelectedData()"
+  />First Name
+  <br />
+  <input type="checkbox" />Last Name <br />
+  <input type="checkbox" />Tel <br />
+  <input type="checkbox" />Address <br />
+  <input type="checkbox" />City <br />
+  <input type="checkbox" />State <br />
+
+  <select name="records" [(ngModel)]="records" (change)="getDataFromServer()">
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="20">20</option>
+    <option value="30">30</option>
+    <option value="40">40</option>
+  </select>
+  <button (click)="handleSubmit(newUser)" type="button">Get Data</button>
+</form>

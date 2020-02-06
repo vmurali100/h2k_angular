@@ -62,7 +62,6 @@ export class UserComponent implements OnInit {
     let copyUses = [...this.users];
     if (search.value.length > 0) {
       let newArray = copyUses.filter(user => {
-        console.log(user);
         return user.email.indexOf(search.value) > -1;
       });
       this.users = newArray;
