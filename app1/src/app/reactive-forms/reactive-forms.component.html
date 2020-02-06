@@ -1,0 +1,26 @@
+<p>reactive-forms works!</p>
+
+<form [formGroup]="userForm" (submit)="handleSubmit()">
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" formControlName="email" required />
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      formControlName="password"
+      required
+    />
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">
+    Submit
+  </button>
+  <!-- <p>Form Invalid :{{ userForm.invalid }}</p>
+  <p>Form Valid : {{ userForm.valid }}</p> -->
+</form>
+<hr />
+
+<app-user-list [users]="myUsers"> </app-user-list>

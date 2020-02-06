@@ -14,6 +14,8 @@ import { Sib2Component } from "./Siblings/sib2/sib2.component";
 import { UserComponent } from "./user/user.component";
 import { NewUserComponent } from "./new-user/new-user.component";
 import { UserFormComponent } from "./user-form/user-form.component";
+import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { UserFormComponent } from "./user-form/user-form.component";
     Sib2Component,
     UserComponent,
     NewUserComponent,
-    UserFormComponent
+    UserFormComponent,
+    ReactiveFormsComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
