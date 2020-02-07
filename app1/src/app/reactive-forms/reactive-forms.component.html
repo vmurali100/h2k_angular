@@ -3,7 +3,13 @@
 <form [formGroup]="userForm" (submit)="handleSubmit()">
   <div class="form-group">
     <label for="email">Email address</label>
-    <input type="email" class="form-control" formControlName="email" required />
+    <input
+      type="email"
+      class="form-control"
+      formControlName="email"
+      required
+      [(ngModel)]="editUser.email"
+    />
   </div>
   <div class="form-group">
     <label for="password">Password</label>
@@ -12,15 +18,29 @@
       class="form-control"
       formControlName="password"
       required
+      [(ngModel)]="editUser.password"
     />
   </div>
 
-  <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">
+  <button
+    type="submit"
+    class="btn btn-primary"
+    [disabled]="!userForm.valid"
+    *ngIf="!isEdit"
+  >
     Submit
+  </button>
+  <button
+    *ngIf="isEdit"
+    class="btn btn-primary"
+    (click)="updateUser()"
+    type="button"
+  >
+    Update
   </button>
   <!-- <p>Form Invalid :{{ userForm.invalid }}</p>
   <p>Form Valid : {{ userForm.valid }}</p> -->
 </form>
 <hr />
-
-<app-user-list [users]="myUsers"> </app-user-list>
+<app-user-list [users]="myUsers" (sendUser)="editUserParent($event)">
+</app-user-list>
