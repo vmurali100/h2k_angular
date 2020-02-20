@@ -1,0 +1,50 @@
+<!-- <p>Template Driven Form</p>
+
+<form #userForm="ngForm">
+  <label for="fname">First Name : </label>
+  <input type="text" ngModel name="fname" /> <br />
+  <label for="lname">Last Name : </label>
+  <input type="text" ngModel name="lname" /> <br />
+
+  <button type="button" (click)="addUser(userForm)">Add User</button>
+</form> -->
+
+<h2>Module Driven</h2>
+
+<form [formGroup]="userForm">
+  <label for="fname">First Name : </label>
+  <input type="text" name="fname" formControlName="fname" /> <br />
+  <label for="lname">Last Name : </label>
+  <input type="text" name="lname" formControlName="lname" /> <br />
+  <label for="city">City : </label>
+  <select name="city" formControlName="city">
+    <option value="Bangalore">Bangalore</option>
+    <option value="Chennai">Chennai</option>
+    <option value="Kochin">Kochin</option>
+    <option value="Hyderabad">Hyderabad</option>
+  </select>
+  <br />
+  <button type="button" (click)="addUser(userForm)" *ngIf="!isEdit">
+    Add User
+  </button>
+  <button (click)="updateUser()" *ngIf="isEdit">Update</button>
+</form>
+<hr />
+<table border="1">
+  <thead>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>City</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users; let i = index">
+      <td>{{ user.fname }}</td>
+      <td>{{ user.lname }}</td>
+      <td>{{ user.city }}</td>
+      <td><button (click)="editUser(user, i)">Edit</button></td>
+      <td><button (click)="deleteUser(i)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>

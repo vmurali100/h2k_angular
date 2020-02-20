@@ -1,28 +1,19 @@
 {
-  "users": [
+  "employees": [
     {
-      "email": "vmurali100@gmail.com",
-      "password": "123`11",
-      "city": "Chennai",
+      "employeeName": "Murali-updated",
+      "employeeEmail": "murali@gmail.com",
       "id": 1
     },
     {
-      "email": "kamlesh23@gmail.comm",
-      "password": "11122",
-      "city": "Hyderabad",
+      "employeeName": "Sravn-uodate",
+      "employeeEmail": "sravan@gmail.com",
+      "id": 2
+    },
+    {
+      "employeeName": "krishna",
+      "employeeEmail": "krishna@gmail.com",
       "id": 3
-    },
-    {
-      "email": "vmurali1001@gmail.com",
-      "password": "1111",
-      "city": "Bangalore",
-      "id": 4
-    },
-    {
-      "email": "somesh61233@gmail.com",
-      "password": "nanan",
-      "city": "Amaravathi",
-      "id": 5
     }
   ]
 }
