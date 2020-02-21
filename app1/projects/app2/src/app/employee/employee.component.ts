@@ -8,6 +8,12 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
   styleUrls: ["./employee.component.css"]
 })
 export class EmployeeComponent implements OnInit {
+  start = 0;
+  end = 0;
+  pageSize = 3;
+  totalPages = 0;
+  pages = [];
+  currentPage = 1;
   employeeForm;
   employees: any = [];
   isEdit = false;
@@ -19,6 +25,9 @@ export class EmployeeComponent implements OnInit {
 
   //Will trigger when Component Loads - this is also called a Life cycles
   ngOnInit() {
+    this.start = 0;
+    this.end = this.start + this.pageSize;
+
     this.employeeForm = new FormGroup({
       employeeName: new FormControl("", [
         Validators.required,
@@ -57,8 +66,16 @@ export class EmployeeComponent implements OnInit {
   }
 
   getAllEmployees() {
+    this.pages = [];
     this.employeeService.getEmployees().subscribe(res => {
       this.employees = res;
+      console.log(this.employees.length);
+      this.totalPages = Math.ceil(this.employees.length / this.pageSize);
+      console.log(this.totalPages);
+      for (let i = 1; i <= this.totalPages; i++) {
+        this.pages.push(i);
+      }
+      console.log(this.pages);
     });
   }
 
@@ -81,5 +98,20 @@ export class EmployeeComponent implements OnInit {
         this.getAllEmployees();
         this.employeeForm.reset();
       });
+  }
+
+  gotoPage(page) {
+    this.currentPage = page;
+    this.start = (page - 1) * this.pageSize;
+    this.end = this.start + this.pageSize;
+  }
+
+  gotoPrevNext(page) {
+    if (page == "Next") {
+      this.currentPage++;
+    } else {
+      this.currentPage--;
+    }
+    this.gotoPage(this.currentPage);
   }
 }

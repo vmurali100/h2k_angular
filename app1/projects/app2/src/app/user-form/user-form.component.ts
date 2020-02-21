@@ -1,5 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl } from "@angular/forms";
+import {
+  FormGroup,
+  FormControl,
+  FormBuilder,
+  Validators
+} from "@angular/forms";
 
 @Component({
   selector: "app-user-form",
@@ -11,7 +16,7 @@ export class UserFormComponent implements OnInit {
   index;
   users = [];
   isEdit = false;
-  constructor() {}
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
     this.users = JSON.parse(localStorage.getItem("users"));
@@ -22,6 +27,12 @@ export class UserFormComponent implements OnInit {
       fname: new FormControl(),
       lname: new FormControl(),
       city: new FormControl()
+    });
+
+    this.userForm = this.fb.group({
+      fname: ["", Validators.required],
+      lname: [""],
+      city: [""]
     });
   }
   addUser(userForm) {

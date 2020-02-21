@@ -11,6 +11,7 @@ export class UserComponent implements OnInit {
     email: "",
     password: ""
   };
+
   editUserObj = {
     email: "",
     password: "",
@@ -26,6 +27,7 @@ export class UserComponent implements OnInit {
   }
 
   handleSubmit(userForm) {
+    console.log(userForm.id);
     this.userService.postUsersToServer(userForm.value).subscribe(res => {
       this.getLatestData();
       userForm.reset();
