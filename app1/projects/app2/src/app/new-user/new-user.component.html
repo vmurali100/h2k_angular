@@ -1,0 +1,22 @@
+<p>new-user works!</p>
+
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users | slice: 0:5">
+        <th>{{ user.fname }}</th>
+        <td>{{ user.lname }}</td>
+        <td>{{ user.tel | mobile }}</td>
+        <td>{{ user.address }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

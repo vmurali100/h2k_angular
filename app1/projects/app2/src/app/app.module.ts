@@ -10,6 +10,9 @@ import { Sibling2Component } from "./SiblingComponents/sibling2/sibling2.compone
 import { UserFormComponent } from "./user-form/user-form.component";
 import { EmployeeComponent } from "./employee/employee.component";
 import { HttpClientModule } from "@angular/common/http";
+import { CustomPipe } from "./custom.pipe";
+import { NewUserComponent } from "./new-user/new-user.component";
+import { MobilePipe } from "./mobile.pipe";
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { HttpClientModule } from "@angular/common/http";
     Sibling1Component,
     Sibling2Component,
     UserFormComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    NewUserComponent,
+    CustomPipe,
+    MobilePipe
   ],
   imports: [
     BrowserModule,
@@ -27,7 +33,7 @@ import { HttpClientModule } from "@angular/common/http";
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [CustomPipe, MobilePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

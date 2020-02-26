@@ -85,9 +85,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let employee of employees | slice: start:end">
+        <tr *ngFor="let employee of employees | slice: start:end | custom: 'S'">
           <td>{{ employee.employeeName }}</td>
-          <td>{{ employee.employeeEmail }}</td>
+          <td>{{ employee.employeeEmail | lowercase }}</td>
           <td>
             <button class="btn btn-warning" (click)="editEmployee(employee)">
               Edit
