@@ -1,0 +1,20 @@
+<p>contact-details works!</p>
+
+<ul>
+  <li>Contact Name : {{ selectdContact.name }}</li>
+  <li>Contact Name : {{ selectdContact.email }}</li>
+  <li>Contact Name : {{ selectdContact.username }}</li>
+  <li>Contact Name : {{ selectdContact.phone }}</li>
+  <li>Contact Name : {{ selectdContact.website }}</li>
+  <li>
+    <span>Address</span>
+    <ul>
+      <li>{{ selectdContact.address.street }}</li>
+      <li>{{ selectdContact.address.suite }}</li>
+      <li>{{ selectdContact.address.city }}</li>
+      <li>{{ selectdContact.address.zipcode }}</li>
+    </ul>
+  </li>
+</ul>
+
+<button class="btn btn-primary" routerLink="/contact">Go To Contacts</button>
