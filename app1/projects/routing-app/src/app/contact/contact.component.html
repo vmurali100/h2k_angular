@@ -1,7 +1,7 @@
 <ul>
   <li
     *ngFor="let contact of contacts"
-    [routerLink]="['/contact', contact.username]"
+    [routerLink]="['contact-details', contact.username]"
   >
     {{ contact.username }}
   </li>

@@ -1,0 +1,481 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["contact-contact-module"],{
+
+/***/ "../../node_modules/raw-loader/dist/cjs.js!./src/app/contact-details/contact-details.component.html":
+/*!*********************************************************************************************************************************!*\
+  !*** G:/Students/h2k_angular/app1/node_modules/raw-loader/dist/cjs.js!./src/app/contact-details/contact-details.component.html ***!
+  \*********************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p>contact-details works!</p>\n\n<ul>\n  <li>Contact Name : {{ selectdContact.name }}</li>\n  <li>Contact Name : {{ selectdContact.email }}</li>\n  <li>Contact Name : {{ selectdContact.username }}</li>\n  <li>Contact Name : {{ selectdContact.phone }}</li>\n  <li>Contact Name : {{ selectdContact.website }}</li>\n  <li>\n    <span>Address</span>\n    <ul>\n      <li>{{ selectdContact.address.street }}</li>\n      <li>{{ selectdContact.address.suite }}</li>\n      <li>{{ selectdContact.address.city }}</li>\n      <li>{{ selectdContact.address.zipcode }}</li>\n    </ul>\n  </li>\n</ul>\n\n<button class=\"btn btn-primary\" routerLink=\"/contact\">Go To Contacts</button>\n");
+
+/***/ }),
+
+/***/ "../../node_modules/raw-loader/dist/cjs.js!./src/app/contact/contact.component.html":
+/*!*****************************************************************************************************************!*\
+  !*** G:/Students/h2k_angular/app1/node_modules/raw-loader/dist/cjs.js!./src/app/contact/contact.component.html ***!
+  \*****************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ul>\n  <li\n    *ngFor=\"let contact of contacts\"\n    [routerLink]=\"['/contact', contact.username]\"\n  >\n    {{ contact.username }}\n  </li>\n</ul>\n");
+
+/***/ }),
+
+/***/ "./src/app/contact-details/contact-details.component.css":
+/*!***************************************************************!*\
+  !*** ./src/app/contact-details/contact-details.component.css ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJwcm9qZWN0cy9yb3V0aW5nLWFwcC9zcmMvYXBwL2NvbnRhY3QtZGV0YWlscy9jb250YWN0LWRldGFpbHMuY29tcG9uZW50LmNzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/contact-details/contact-details.component.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/contact-details/contact-details.component.ts ***!
+  \**************************************************************/
+/*! exports provided: ContactDetailsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactDetailsComponent", function() { return ContactDetailsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "../../node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _contacts_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../contacts.service */ "./src/app/contacts.service.ts");
+
+
+
+
+let ContactDetailsComponent = class ContactDetailsComponent {
+    constructor(route, contactsService) {
+        this.route = route;
+        this.contactsService = contactsService;
+    }
+    ngOnInit() {
+        let allContacts = this.contactsService.getContacts();
+        this.route.paramMap.subscribe(res => {
+            let userName = res["params"].username;
+            this.selectdContact = allContacts.find(contact => {
+                return userName == contact.username;
+            });
+        });
+    }
+};
+ContactDetailsComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: _contacts_service__WEBPACK_IMPORTED_MODULE_3__["ContactsService"] }
+];
+ContactDetailsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: "app-contact-details",
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./contact-details.component.html */ "../../node_modules/raw-loader/dist/cjs.js!./src/app/contact-details/contact-details.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./contact-details.component.css */ "./src/app/contact-details/contact-details.component.css")).default]
+    })
+], ContactDetailsComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/contact/contact-routing.module.ts":
+/*!***************************************************!*\
+  !*** ./src/app/contact/contact-routing.module.ts ***!
+  \***************************************************/
+/*! exports provided: ContactRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactRoutingModule", function() { return ContactRoutingModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "../../node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _contact_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./contact.component */ "./src/app/contact/contact.component.ts");
+/* harmony import */ var _contact_details_contact_details_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../contact-details/contact-details.component */ "./src/app/contact-details/contact-details.component.ts");
+
+
+
+
+
+const contactRoutes = [
+    {
+        path: "",
+        component: _contact_component__WEBPACK_IMPORTED_MODULE_3__["ContactComponent"]
+    },
+    { path: "contact/:username", component: _contact_details_contact_details_component__WEBPACK_IMPORTED_MODULE_4__["ContactDetailsComponent"] }
+];
+let ContactRoutingModule = class ContactRoutingModule {
+};
+ContactRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(contactRoutes)],
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
+    })
+], ContactRoutingModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/contact/contact.component.css":
+/*!***********************************************!*\
+  !*** ./src/app/contact/contact.component.css ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJwcm9qZWN0cy9yb3V0aW5nLWFwcC9zcmMvYXBwL2NvbnRhY3QvY29udGFjdC5jb21wb25lbnQuY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/contact/contact.component.ts":
+/*!**********************************************!*\
+  !*** ./src/app/contact/contact.component.ts ***!
+  \**********************************************/
+/*! exports provided: ContactComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactComponent", function() { return ContactComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _contacts_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../contacts.service */ "./src/app/contacts.service.ts");
+
+
+
+let ContactComponent = class ContactComponent {
+    constructor(contactsService) {
+        this.contactsService = contactsService;
+    }
+    ngOnInit() {
+        this.contacts = this.contactsService.getContacts();
+    }
+};
+ContactComponent.ctorParameters = () => [
+    { type: _contacts_service__WEBPACK_IMPORTED_MODULE_2__["ContactsService"] }
+];
+ContactComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: "app-contact",
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./contact.component.html */ "../../node_modules/raw-loader/dist/cjs.js!./src/app/contact/contact.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./contact.component.css */ "./src/app/contact/contact.component.css")).default]
+    })
+], ContactComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/contact/contact.module.ts":
+/*!*******************************************!*\
+  !*** ./src/app/contact/contact.module.ts ***!
+  \*******************************************/
+/*! exports provided: ContactModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactModule", function() { return ContactModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _contact_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./contact.component */ "./src/app/contact/contact.component.ts");
+/* harmony import */ var _contact_details_contact_details_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../contact-details/contact-details.component */ "./src/app/contact-details/contact-details.component.ts");
+/* harmony import */ var _contact_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./contact-routing.module */ "./src/app/contact/contact-routing.module.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "../../node_modules/@angular/common/fesm2015/common.js");
+
+
+
+
+
+
+let ContactModule = class ContactModule {
+};
+ContactModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        declarations: [_contact_component__WEBPACK_IMPORTED_MODULE_2__["ContactComponent"], _contact_details_contact_details_component__WEBPACK_IMPORTED_MODULE_3__["ContactDetailsComponent"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["CommonModule"], _contact_routing_module__WEBPACK_IMPORTED_MODULE_4__["ContactRoutingModule"]]
+    })
+], ContactModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/contacts.service.ts":
+/*!*************************************!*\
+  !*** ./src/app/contacts.service.ts ***!
+  \*************************************/
+/*! exports provided: ContactsService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactsService", function() { return ContactsService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm2015/core.js");
+
+
+let ContactsService = class ContactsService {
+    constructor() { }
+    getContacts() {
+        return users;
+    }
+};
+ContactsService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: "root"
+    })
+], ContactsService);
+
+const users = [
+    {
+        id: 1,
+        name: "Leanne Graham",
+        username: "Bret",
+        email: "Sincere@april.biz",
+        address: {
+            street: "Kulas Light",
+            suite: "Apt. 556",
+            city: "Gwenborough",
+            zipcode: "92998-3874",
+            geo: {
+                lat: "-37.3159",
+                lng: "81.1496"
+            }
+        },
+        phone: "1-770-736-8031 x56442",
+        website: "hildegard.org",
+        company: {
+            name: "Romaguera-Crona",
+            catchPhrase: "Multi-layered client-server neural-net",
+            bs: "harness real-time e-markets"
+        }
+    },
+    {
+        id: 2,
+        name: "Ervin Howell",
+        username: "Antonette",
+        email: "Shanna@melissa.tv",
+        address: {
+            street: "Victor Plains",
+            suite: "Suite 879",
+            city: "Wisokyburgh",
+            zipcode: "90566-7771",
+            geo: {
+                lat: "-43.9509",
+                lng: "-34.4618"
+            }
+        },
+        phone: "010-692-6593 x09125",
+        website: "anastasia.net",
+        company: {
+            name: "Deckow-Crist",
+            catchPhrase: "Proactive didactic contingency",
+            bs: "synergize scalable supply-chains"
+        }
+    },
+    {
+        id: 3,
+        name: "Clementine Bauch",
+        username: "Samantha",
+        email: "Nathan@yesenia.net",
+        address: {
+            street: "Douglas Extension",
+            suite: "Suite 847",
+            city: "McKenziehaven",
+            zipcode: "59590-4157",
+            geo: {
+                lat: "-68.6102",
+                lng: "-47.0653"
+            }
+        },
+        phone: "1-463-123-4447",
+        website: "ramiro.info",
+        company: {
+            name: "Romaguera-Jacobson",
+            catchPhrase: "Face to face bifurcated interface",
+            bs: "e-enable strategic applications"
+        }
+    },
+    {
+        id: 4,
+        name: "Patricia Lebsack",
+        username: "Karianne",
+        email: "Julianne.OConner@kory.org",
+        address: {
+            street: "Hoeger Mall",
+            suite: "Apt. 692",
+            city: "South Elvis",
+            zipcode: "53919-4257",
+            geo: {
+                lat: "29.4572",
+                lng: "-164.2990"
+            }
+        },
+        phone: "493-170-9623 x156",
+        website: "kale.biz",
+        company: {
+            name: "Robel-Corkery",
+            catchPhrase: "Multi-tiered zero tolerance productivity",
+            bs: "transition cutting-edge web services"
+        }
+    },
+    {
+        id: 5,
+        name: "Chelsey Dietrich",
+        username: "Kamren",
+        email: "Lucio_Hettinger@annie.ca",
+        address: {
+            street: "Skiles Walks",
+            suite: "Suite 351",
+            city: "Roscoeview",
+            zipcode: "33263",
+            geo: {
+                lat: "-31.8129",
+                lng: "62.5342"
+            }
+        },
+        phone: "(254)954-1289",
+        website: "demarco.info",
+        company: {
+            name: "Keebler LLC",
+            catchPhrase: "User-centric fault-tolerant solution",
+            bs: "revolutionize end-to-end systems"
+        }
+    },
+    {
+        id: 6,
+        name: "Mrs. Dennis Schulist",
+        username: "Leopoldo_Corkery",
+        email: "Karley_Dach@jasper.info",
+        address: {
+            street: "Norberto Crossing",
+            suite: "Apt. 950",
+            city: "South Christy",
+            zipcode: "23505-1337",
+            geo: {
+                lat: "-71.4197",
+                lng: "71.7478"
+            }
+        },
+        phone: "1-477-935-8478 x6430",
+        website: "ola.org",
+        company: {
+            name: "Considine-Lockman",
+            catchPhrase: "Synchronised bottom-line interface",
+            bs: "e-enable innovative applications"
+        }
+    },
+    {
+        id: 7,
+        name: "Kurtis Weissnat",
+        username: "Elwyn.Skiles",
+        email: "Telly.Hoeger@billy.biz",
+        address: {
+            street: "Rex Trail",
+            suite: "Suite 280",
+            city: "Howemouth",
+            zipcode: "58804-1099",
+            geo: {
+                lat: "24.8918",
+                lng: "21.8984"
+            }
+        },
+        phone: "210.067.6132",
+        website: "elvis.io",
+        company: {
+            name: "Johns Group",
+            catchPhrase: "Configurable multimedia task-force",
+            bs: "generate enterprise e-tailers"
+        }
+    },
+    {
+        id: 8,
+        name: "Nicholas Runolfsdottir V",
+        username: "Maxime_Nienow",
+        email: "Sherwood@rosamond.me",
+        address: {
+            street: "Ellsworth Summit",
+            suite: "Suite 729",
+            city: "Aliyaview",
+            zipcode: "45169",
+            geo: {
+                lat: "-14.3990",
+                lng: "-120.7677"
+            }
+        },
+        phone: "586.493.6943 x140",
+        website: "jacynthe.com",
+        company: {
+            name: "Abernathy Group",
+            catchPhrase: "Implemented secondary concept",
+            bs: "e-enable extensible e-tailers"
+        }
+    },
+    {
+        id: 9,
+        name: "Glenna Reichert",
+        username: "Delphine",
+        email: "Chaim_McDermott@dana.io",
+        address: {
+            street: "Dayna Park",
+            suite: "Suite 449",
+            city: "Bartholomebury",
+            zipcode: "76495-3109",
+            geo: {
+                lat: "24.6463",
+                lng: "-168.8889"
+            }
+        },
+        phone: "(775)976-6794 x41206",
+        website: "conrad.com",
+        company: {
+            name: "Yost and Sons",
+            catchPhrase: "Switchable contextually-based project",
+            bs: "aggregate real-time technologies"
+        }
+    },
+    {
+        id: 10,
+        name: "Clementina DuBuque",
+        username: "Moriah.Stanton",
+        email: "Rey.Padberg@karina.biz",
+        address: {
+            street: "Kattie Turnpike",
+            suite: "Suite 198",
+            city: "Lebsackbury",
+            zipcode: "31428-2261",
+            geo: {
+                lat: "-38.2386",
+                lng: "57.2232"
+            }
+        },
+        phone: "024-648-3804",
+        website: "ambrose.net",
+        company: {
+            name: "Hoeger LLC",
+            catchPhrase: "Centralized empowering task-force",
+            bs: "target end-to-end models"
+        }
+    }
+];
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=contact-contact-module.js.map

@@ -1,13 +1,22 @@
 import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: "root"
 })
 export class ContactsService {
-  constructor() {}
+  contacts: any;
+  constructor(private _http: HttpClient) {}
 
   getContacts() {
-    return users;
+    return this._http.get("https://jsonplaceholder.typicode.com/users");
+  }
+
+  setData(data) {
+    this.contacts = data;
+  }
+  getData() {
+    return this.contacts;
   }
 }
 

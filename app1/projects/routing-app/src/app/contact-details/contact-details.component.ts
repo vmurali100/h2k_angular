@@ -9,16 +9,17 @@ import { ContactsService } from "../contacts.service";
 })
 export class ContactDetailsComponent implements OnInit {
   selectdContact: any;
+  allContacts: any = [];
   constructor(
     private route: ActivatedRoute,
     private contactsService: ContactsService
   ) {}
 
   ngOnInit() {
-    let allContacts = this.contactsService.getContacts();
+    this.allContacts = this.contactsService.getData();
     this.route.paramMap.subscribe(res => {
       let userName = res["params"].username;
-      this.selectdContact = allContacts.find(contact => {
+      this.selectdContact = this.allContacts.find(contact => {
         return userName == contact.username;
       });
     });
