@@ -4,11 +4,11 @@ import { ShoppingActionTypes } from "../actions/shopping.actions";
 const initialState: Array<ShoppingItem> = [
   {
     id: "ABC",
-    name: "Nokia"
+    itemName: "Nokia"
   },
   {
     id: "ABCD",
-    name: "Motorola"
+    itemName: "Motorola"
   }
 ];
 
@@ -17,6 +17,16 @@ export function ShoppingReducer(state = initialState, action) {
     case ShoppingActionTypes.ADD_ITEM:
       return [...state, action.payLoad];
 
+    case ShoppingActionTypes.DELETE_ITEM:
+      return state.filter(item => item !== action.payLoad);
+
+    case ShoppingActionTypes.UPDATE_ITEM:
+      let Newstate = [...state];
+      console.log(Newstate);
+
+      Newstate[0].id = "ABDCE";
+
+    // return Newstate;
     default:
       return state;
   }

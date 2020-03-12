@@ -1,6 +1,15 @@
-<button (click)="addItem()">Add Item</button>
+<form #itemForm="ngForm">
+  <label for="id">Item ID : </label>
+  <input type="text" ngModel name="id" /> <br />
+  <label for="itemName">Item Name : </label>
+  <input type="text" ngModel name="itemName" /> <br />
+  <button type="button" (click)="addItem(itemForm)">Add Item</button>
+  <button (click)="updateItem(itemForm)">Update Item</button>
+</form>
 <ul>
   <li *ngFor="let item of shoppingItems$ | async">
-    {{ item.name }}
+    {{ item.itemName }}
+    <span (click)="deleteItem(item)">X</span>
+    <span (click)="editItem(itemForm, item)" id="edit">-</span>
   </li>
 </ul>

@@ -3,7 +3,12 @@ import { Store } from "@ngrx/store";
 import { AppState } from "./store/models/app-state.model";
 import { Observable } from "rxjs";
 import { ShoppingItem } from "./store/models/Shopping-item.model";
-import { AddItemAction } from "./store/actions/shopping.actions";
+import {
+  AddItemAction,
+  DeleteItemAction,
+  UpdateItemAction
+} from "./store/actions/shopping.actions";
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: "app-root",
@@ -11,6 +16,10 @@ import { AddItemAction } from "./store/actions/shopping.actions";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
+  // item = {
+  //   id: "",
+  //   name: ""
+  // };
   shoppingItems$: Observable<Array<ShoppingItem>>;
   constructor(private store: Store<AppState>) {}
   title = "ngrx-app";
@@ -20,7 +29,24 @@ export class AppComponent {
     });
   }
 
-  addItem() {
-    this.store.dispatch(new AddItemAction({ id: "CDF", name: "My New Item" }));
+  addItem(itemForm: NgForm) {
+    console.log(itemForm.value);
+    this.store.dispatch(new AddItemAction(itemForm.value));
+    itemForm.reset();
+  }
+
+  deleteItem(item) {
+    console.log(item);
+    this.store.dispatch(new DeleteItemAction(item));
+  }
+
+  editItem(itemForm, item) {
+    console.log(itemForm);
+    itemForm.setValue(item);
+    // itemForm.setValue(item);
+  }
+  updateItem(itemForm: NgForm) {
+    console.log();
+    this.store.dispatch(new UpdateItemAction(itemForm.value));
   }
 }
