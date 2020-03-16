@@ -46,7 +46,7 @@ export class AppComponent {
     // itemForm.setValue(item);
   }
   updateItem(itemForm: NgForm) {
-    console.log();
     this.store.dispatch(new UpdateItemAction(itemForm.value));
+    itemForm.reset();
   }
 }

@@ -21,12 +21,18 @@ export function ShoppingReducer(state = initialState, action) {
       return state.filter(item => item !== action.payLoad);
 
     case ShoppingActionTypes.UPDATE_ITEM:
-      let Newstate = [...state];
-      console.log(Newstate);
+      let Newstate = [];
 
-      Newstate[0].id = "ABDCE";
+      state.map(obj => {
+        let newObj = Object.assign({}, obj);
 
-    // return Newstate;
+        if (action.payLoad.id == obj.id) {
+          newObj.itemName = action.payLoad.itemName;
+        }
+        Newstate.push(newObj);
+      });
+
+      return Newstate;
     default:
       return state;
   }
