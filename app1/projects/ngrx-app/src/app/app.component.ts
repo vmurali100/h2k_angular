@@ -6,7 +6,8 @@ import { ShoppingItem } from "./store/models/Shopping-item.model";
 import {
   AddItemAction,
   DeleteItemAction,
-  UpdateItemAction
+  UpdateItemAction,
+  LoadItemsAction
 } from "./store/actions/shopping.actions";
 import { NgForm } from "@angular/forms";
 
@@ -24,9 +25,10 @@ export class AppComponent {
   constructor(private store: Store<AppState>) {}
   title = "ngrx-app";
   ngOnInit() {
-    this.shoppingItems$ = this.store.select(abc => {
-      return abc.shopping;
-    });
+    // this.shoppingItems$ = this.store.select(abc => {
+    //   return abc.shopping;
+    // });
+    this.store.dispatch(new LoadItemsAction());
   }
 
   addItem(itemForm: NgForm) {

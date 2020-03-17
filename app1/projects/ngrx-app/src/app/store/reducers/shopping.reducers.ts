@@ -20,6 +20,13 @@ export function ShoppingReducer(state = initialState, action) {
     case ShoppingActionTypes.DELETE_ITEM:
       return state.filter(item => item !== action.payLoad);
 
+    case ShoppingActionTypes.LOAD_ITEMS:
+      return { ...state };
+
+    case ShoppingActionTypes.LOAD_ITEMS_SUCCESS:
+      console.log(action.payLoad);
+      return { ...state };
+
     case ShoppingActionTypes.UPDATE_ITEM:
       let Newstate = [];
 
