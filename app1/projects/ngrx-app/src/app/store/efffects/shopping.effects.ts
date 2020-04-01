@@ -19,4 +19,34 @@ export class ShoppingItemsEffects {
         .pipe(map(items => new LoadItemsSuccess(items)));
     })
   );
+
+  @Effect()
+  deleteItem = this.actions$.pipe(ofType(ShoppingActionTypes.DELETE_ITEM)).pipe(
+    switchMap(data => {
+      return this.itemService
+        .deleteItem(data["payLoad"])
+        .pipe(map(items => new LoadItemsAction()));
+    })
+  );
+
+  @Effect()
+  addItem = this.actions$
+    .pipe(ofType(ShoppingActionTypes.ADD_ITEM))
+    .pipe(
+      switchMap(data =>
+        this.itemService
+          .addItem(data["payLoad"])
+          .pipe(map(items => new LoadItemsAction()))
+      )
+    );
+  @Effect()
+  updateItem = this.actions$
+    .pipe(ofType(ShoppingActionTypes.UPDATE_ITEM))
+    .pipe(
+      switchMap(data =>
+        this.itemService
+          .updateItem(data["payLoad"])
+          .pipe(map(data => new LoadItemsAction()))
+      )
+    );
 }

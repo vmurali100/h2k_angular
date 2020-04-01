@@ -9,8 +9,15 @@ export class CommonService {
   constructor(private _http: HttpClient) {}
 
   getItems(): Observable<any> {
-    return this._http.get(
-      "http://www.filltext.com/?rows=5&fname={firstName}&lname={lastName}&pretty=true"
-    );
+    return this._http.get("http://localhost:3000/items");
+  }
+  deleteItem(item) {
+    return this._http.delete("http://localhost:3000/items/" + item.id);
+  }
+  addItem(item) {
+    return this._http.post("http://localhost:3000/items/", item);
+  }
+  updateItem(item) {
+    return this._http.put("http://localhost:3000/items/" + item.id, item);
   }
 }

@@ -25,20 +25,22 @@ export class AppComponent {
   constructor(private store: Store<AppState>) {}
   title = "ngrx-app";
   ngOnInit() {
-    // this.shoppingItems$ = this.store.select(abc => {
-    //   return abc.shopping;
-    // });
+    this.shoppingItems$ = this.store.select(abc => {
+      return abc.shopping;
+    });
     this.store.dispatch(new LoadItemsAction());
+    // this.store.subscribe(res => {
+    //   this.shoppingItems = res["shopping"];
+    // });
   }
 
   addItem(itemForm: NgForm) {
-    console.log(itemForm.value);
     this.store.dispatch(new AddItemAction(itemForm.value));
     itemForm.reset();
+    // console.log(itemForm.value);
   }
 
   deleteItem(item) {
-    console.log(item);
     this.store.dispatch(new DeleteItemAction(item));
   }
 

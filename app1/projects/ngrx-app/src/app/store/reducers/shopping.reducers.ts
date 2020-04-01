@@ -25,7 +25,7 @@ export function ShoppingReducer(state = initialState, action) {
 
     case ShoppingActionTypes.LOAD_ITEMS_SUCCESS:
       console.log(action.payLoad);
-      return { ...state };
+      return action.payLoad;
 
     case ShoppingActionTypes.UPDATE_ITEM:
       let Newstate = [];
