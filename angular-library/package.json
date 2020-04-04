@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-lib": "ng-packagr -p super-lib/package.json"
+    "build-lib": "ng-packagr -p crud-murali/package.json"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +20,7 @@
     "@angular/platform-browser": "~9.0.5",
     "@angular/platform-browser-dynamic": "~9.0.5",
     "@angular/router": "~9.0.5",
+    "crud-murali": "file:crud-murali/dist",
     "rxjs": "~6.5.4",
     "super-lib": "file:super-lib/dist",
     "tslib": "^1.10.0",
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.900.5",
+    "@angular-devkit/build-ng-packagr": "~0.900.7",
     "@angular/cli": "~9.0.5",
     "@angular/compiler-cli": "~9.0.5",
     "@angular/language-service": "~9.0.5",
