@@ -3,7 +3,9 @@ import { Input, Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 let CrudAppMuraliComponent = class CrudAppMuraliComponent {
-    editUser() { }
+    editUser(user) {
+        console.log(user);
+    }
     deleteUser(i) {
         this.users.splice(i, 1);
     }
@@ -28,7 +30,7 @@ CrudAppMuraliComponent = __decorate([
         <td>{{ user.lname }}</td>
         <td>{{ user.email }}</td>
         <td>
-          <button class="btn btn-warning" (click)="editUser()">Edit</button>
+          <button class="btn btn-warning" (click)="editUser(user)">Edit</button>
         </td>
         <td>
           <button class="btn btn-danger" (click)="deleteUser(i)">Delete</button>

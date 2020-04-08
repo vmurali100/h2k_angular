@@ -1,5 +1,0 @@
-export declare class CrudAppMuraliComponent {
-    users: any;
-    editUser(): void;
-    deleteUser(i: any): void;
-}

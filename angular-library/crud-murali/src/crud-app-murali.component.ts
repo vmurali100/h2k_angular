@@ -16,7 +16,7 @@ import { Component, Input } from "@angular/core";
         <td>{{ user.lname }}</td>
         <td>{{ user.email }}</td>
         <td>
-          <button class="btn btn-warning" (click)="editUser()">Edit</button>
+          <button class="btn btn-warning" (click)="editUser(user)">Edit</button>
         </td>
         <td>
           <button class="btn btn-danger" (click)="deleteUser(i)">Delete</button>
@@ -28,7 +28,9 @@ import { Component, Input } from "@angular/core";
 export class CrudAppMuraliComponent {
   @Input() users;
 
-  editUser() {}
+  editUser(user) {
+    console.log(user);
+  }
   deleteUser(i) {
     this.users.splice(i, 1);
   }
